@@ -1,0 +1,170 @@
+@use '../../styles/variables' as *;
+
+.product {
+  position: relative;
+  max-width: 250px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 8px;
+  padding: 32px;
+
+  background: #fff;
+
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 8px 24px 0px #00000014;
+  }
+
+  &-wishlist {
+    $size: 48px;
+
+    position: absolute;
+    top: 32px;
+    right: 32px;
+
+    cursor: pointer;
+
+    background: #e9ebee;
+
+    width: $size;
+    height: $size;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+
+    &.active {
+      background: $red500;
+
+      svg path {
+        stroke: $red500;
+        fill: #fff;
+      }
+
+      &:hover {
+        background: $red600;
+      }
+    }
+
+    &,
+    svg path {
+      transition: 0.2s ease-in-out;
+    }
+
+    &:hover {
+      background: $pink100;
+
+      svg path {
+        stroke: $red500;
+      }
+    }
+  }
+
+  &-image {
+    display: flex;
+    justify-content: center;
+
+    img {
+      height: 240px;
+    }
+  }
+
+  &-name {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+
+    margin: 32px 0 24px;
+
+    color: $gray900;
+  }
+
+  &-price {
+    display: grid;
+    grid-template-rows: 20px 30px 15px;
+
+    gap: 2px;
+
+    margin-bottom: 32px;
+
+    &-discount {
+      color: $gray600;
+      font-size: 14px;
+      font-weight: 500;
+
+      text-decoration: line-through;
+    }
+
+    &-original {
+      font-size: 20px;
+      color: $red500;
+      font-weight: 600;
+    }
+
+    &-installments {
+      font-size: 12px;
+      color: $gray700;
+      font-weight: 500;
+
+      strong {
+        color: $gray900;
+      }
+    }
+  }
+
+  &-buy {
+    cursor: pointer;
+
+    // rather use padding, but in this case itd trigger a layout shift
+    height: 48px;
+    // padding: 13px 0;
+
+    color: #fff;
+    background: $green400;
+
+    border-radius: 5px;
+    border: 0;
+
+    letter-spacing: 0.5px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    outline: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.2s ease-in-out;
+
+    &.added {
+      color: #000;
+      background: $green100;
+
+      &::before {
+        content: '';
+
+        width: 18px;
+        height: 18px;
+
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M20 6 9 17l-5-5' stroke='%231C1C1C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
+        background-size: 100%;
+        margin-right: 8px;
+      }
+    }
+
+    svg {
+      width: 20px;
+      margin-right: 8px;
+    }
+
+    &:hover {
+      background: $green600;
+    }
+  }
+}
